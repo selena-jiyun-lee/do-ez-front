@@ -56,7 +56,7 @@ const temp_data = [
 
 const Container = styled.ul`
 	width: 70%;
-	margin: 50px 0;
+	margin-left: 350px;
 `;
 
 const HomePresenter = () => (

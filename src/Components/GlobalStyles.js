@@ -15,7 +15,6 @@ const globalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    margin-left: 300px;         /* Header width */
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: 300;
     color: #333333;

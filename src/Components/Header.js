@@ -1,7 +1,8 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import LogoSrc from 'assets/logo.png';
 
@@ -13,15 +14,35 @@ const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 60px;
+	padding: 30px 40px;
 	background-color: #9999cc;
+	${props => (props.isHome ? '' : 'display:none')};
 `;
 
-const Logo = styled.img.attrs({
+const HideMenuContainer = styled.div`
+	width: 300px;
+	position: fixed;
+	left: 0;
+	padding: 30px 40px;
+	display: flex;
+	align-items: center;
+	${props => (props.isHome ? 'display:none' : '')};
+`;
+
+const Logo = styled.div`
+	/* align-self: start;
+	margin-left: 40px; */
+	margin-bottom: 60px;
+`;
+
+const Menu = styled(FontAwesomeIcon)`
+	margin-right: 12px;
+`;
+
+const LogoImg = styled.img.attrs({
 	src: `${LogoSrc}`,
 })`
 	width: 100px;
-	margin-bottom: 100px;
 `;
 
 // Search Container
@@ -89,27 +110,34 @@ const temp_data = [
 ];
 // id: id, name: Large menu name, items: [small menu name, small menu name]
 
-const Header = () => (
-	<Container>
-		<Logo />
-		<Search>
-			<SearchInput />
-			<SearchIcon icon={faSearch} />
-		</Search>
-		<Types>
-			{temp_data.map(type => (
-				<TypeGroup key={type.id}>
-					<TypeName>{type.name}</TypeName>
-					<TypeItems>
-						{type.items.map(item => (
-							<TypeItem key={item}> - {item} </TypeItem>
-						))}
-					</TypeItems>
-				</TypeGroup>
-			))}
-		</Types>
-	</Container>
-);
+export default withRouter(({ location: { pathname } }) => (
+	<>
+		<Container isHome={pathname === '/'}>
+			<Logo>
+				<LogoImg isHome={pathname === '/'} />
+			</Logo>
+			<Search>
+				<SearchInput />
+				<SearchIcon icon={faSearch} />
+			</Search>
+			<Types>
+				{temp_data.map(type => (
+					<TypeGroup key={type.id}>
+						<TypeName>{type.name}</TypeName>
+						<TypeItems>
+							{type.items.map(item => (
+								<TypeItem key={item}> - {item} </TypeItem>
+							))}
+						</TypeItems>
+					</TypeGroup>
+				))}
+			</Types>
+		</Container>
+		<HideMenuContainer isHome={pathname === '/'}>
+			<Menu icon={faBars} size="2x" />
+			<LogoImg isHome={pathname === '/'} />
+		</HideMenuContainer>
+	</>
+));
 
 // Set PropTypes
-export default Header;
