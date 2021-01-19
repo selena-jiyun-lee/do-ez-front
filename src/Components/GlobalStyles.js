@@ -1,8 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
-import reset from 'styled-reset';
+// import reset from 'styled-reset';
+import { normalize } from 'styled-normalize';
 
 const globalStyles = createGlobalStyle`
-  ${reset};
+  ${normalize};
   a {
     text-decoration: none;
     color: inherit;
@@ -10,6 +11,14 @@ const globalStyles = createGlobalStyle`
   input {
     color: inherit;
     font-family: inherit;
+    border: none;
+    background-color: transparent;
+    color: #666699;
+    font-size: 0.8rem;
+
+    &:focus {
+      outline: none;
+    }
   }
   * {
     box-sizing: border-box;

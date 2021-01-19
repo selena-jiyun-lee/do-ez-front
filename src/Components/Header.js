@@ -59,14 +59,6 @@ const Search = styled.div`
 const SearchInput = styled.input`
 	width: 90%;
 	padding: 8px 15px;
-	border: none;
-	background-color: transparent;
-	color: #666699;
-	font-size: 0.8rem;
-
-	&:focus {
-		outline: none;
-	}
 `;
 
 // Search Icon

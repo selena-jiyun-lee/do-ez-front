@@ -5,6 +5,7 @@ import Footer from 'Components/Footer';
 
 import Home from 'Routes/Home';
 import Post from 'Routes/Post';
+import Write from 'Routes/Write';
 
 export default () => (
 	<Router>
@@ -12,6 +13,7 @@ export default () => (
 		<Switch>
 			<Route path="/" exact component={Home} />
 			<Route path="/post/:id" exact component={Post} />
+			<Route path="/write" exact component={Write} />
 			<Redirect from="*" to="/" />
 		</Switch>
 		<Footer />
