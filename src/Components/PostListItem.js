@@ -1,10 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const Item = styled.div`
-	margin: 15px 0;
+const Item = styled(Link)`
+	width: 60%;
 	padding: 20px;
-	border-bottom: 1px solid #cccccc;
+	box-shadow: rgba(27, 31, 35, 0.09) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+	&:hover {
+		box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+	}
 `;
 
 const Row = styled.div`
@@ -14,13 +18,13 @@ const Row = styled.div`
 `;
 
 const Type = styled.span`
-	color: #9999cc;
 	font-weight: 500;
+	color: #9999cc;
 `;
 
 const CreateDate = styled.span`
-	color: #999999;
 	font-size: 0.8rem;
+	color: #999999;
 `;
 
 const Title = styled.h3`
@@ -31,14 +35,14 @@ const Title = styled.h3`
 `;
 
 const Tags = styled.div`
-	color: #9999cc;
 	font-size: 0.9rem;
+	color: #9999cc;
 `;
 
 const Tag = styled.span``;
 
 const PostListItem = ({ post }) => (
-	<Item>
+	<Item to={`/post/${post.id}`}>
 		<Row>
 			<Type>{post.type}</Type>
 			<CreateDate>{post.date}</CreateDate>

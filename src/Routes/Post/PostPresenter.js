@@ -3,8 +3,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
 	width: 70%;
-	margin-top: 150px;
-	/* background-color: #ffffcc; */
+	margin-top: 100px;
 `;
 const Row = styled.div`
 	display: flex;

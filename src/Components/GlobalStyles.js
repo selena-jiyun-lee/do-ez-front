@@ -24,6 +24,7 @@ const globalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
+    height: 100%;
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: 300;
     color: #333333;
@@ -31,6 +32,8 @@ const globalStyles = createGlobalStyle`
   }
   #root { 
     width: 100%;
+    min-height: 100%;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;

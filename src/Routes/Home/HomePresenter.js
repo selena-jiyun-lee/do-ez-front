@@ -54,9 +54,12 @@ const temp_data = [
 	},
 ];
 
-const Container = styled.ul`
-	width: 70%;
-	margin-left: 350px;
+const Container = styled.div`
+	width: 100vw;
+	margin-top: 80px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 `;
 
 const HomePresenter = () => (
