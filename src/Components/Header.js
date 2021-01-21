@@ -12,7 +12,6 @@ class Header extends React.Component {
 		};
 
 		this.handleMouseDown = this.handleMouseDown.bind(this);
-		this.toggleMenu = this.toggleMenu.bind(this);
 	}
 
 	// TopMenu - bar button, LeftMenu - div Event
